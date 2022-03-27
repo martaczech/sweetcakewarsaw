@@ -1,4 +1,4 @@
-package com.example.sweetcakewarsaw
+package com.martaczech.sweetcakewarsaw
 
 import io.flutter.embedding.android.FlutterActivity
 
