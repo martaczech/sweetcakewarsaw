@@ -22,14 +22,18 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sweet Cake Warsaw'),
+        title: const Center(child: Text('Sweet Cake Warsaw')),
       ),
       body: Builder(builder: (context) {
         if (currentIndex == 0) {
           return const PlacesPageContent();
         }
         if (currentIndex == 1) {
-          return const AddOpinionPageContent();
+          return AddOpinionPageContent(onSave: () {
+            setState(() {
+              currentIndex = 0;
+            });
+          });
         }
         return AddAccountPageContent(email: widget.user.email);
       }),
