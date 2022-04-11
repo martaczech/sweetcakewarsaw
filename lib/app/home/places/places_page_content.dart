@@ -38,9 +38,6 @@ class PlacesPageContent extends StatelessWidget {
                   ],
                 ),
               ),
-              const Center(
-                child: Text('Jeden'),
-              ),
             ],
           ],
         );

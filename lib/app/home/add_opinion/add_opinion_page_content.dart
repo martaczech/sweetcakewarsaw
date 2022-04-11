@@ -13,6 +13,7 @@ class AddOpinionPageContent extends StatefulWidget {
 class _AddOpinionPageContentState extends State<AddOpinionPageContent> {
   var placeName = '';
   var cakeName = '';
+  var rating = 3.0;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -28,22 +29,37 @@ class _AddOpinionPageContentState extends State<AddOpinionPageContent> {
             },
           ),
           TextField(
-            decoration: const InputDecoration(hintText: 'Podaj nazwę ciastka'),
+            decoration: const InputDecoration(
+              hintText: 'Podaj nazwę ciastka',
+            ),
             onChanged: (newValue) {
               setState(() {
                 cakeName = newValue;
               });
             },
           ),
+          Slider(
+            onChanged: (newValue) {
+              setState(() {
+                rating = newValue;
+              });
+            },
+            value: rating,
+            min: 1.0,
+            max: 6.0,
+            divisions: 10,
+            label: rating.toString(),
+          ),
           ElevatedButton(
-              onPressed: () {
-                FirebaseFirestore.instance.collection('restaurants').add({
-                  'name': placeName,
-                  'cake': cakeName,
-                  'rating': 3.0,
-                });
-              },
-              child: const Text('Dodaj'))
+            onPressed: () {
+              FirebaseFirestore.instance.collection('places').add({
+                'name': placeName,
+                'ciastko': cakeName,
+                'rating': rating,
+              });
+            },
+            child: const Text('Dodaj'),
+          ),
         ],
       ),
     );
