@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sweetcakewarsaw/app/home/places/cubit/places_cubit.dart';
+import 'package:sweetcakewarsaw/app/features/home/places/cubit/places_cubit.dart';
 
 class PlacesPageContent extends StatelessWidget {
   const PlacesPageContent({
